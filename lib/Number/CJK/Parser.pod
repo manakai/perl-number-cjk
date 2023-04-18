@@ -28,6 +28,13 @@ Numbers <https://manakai.github.io/spec-numbers/>.
 
 Wakaba <wakaba@suikawiki.org>.
 
+=head1 HISTORY
+
+This repository was located at
+<https://github.com/wakaba/perl-number-cjk> until 18 April 2022, then
+transferred to the manakai project
+<https://github.com/manakai/perl-number-cjk>.
+
 =head1 LICENSE
 
 Copyright 2015-2019 Wakaba <wakaba@suikawiki.org>.
