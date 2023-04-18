@@ -31,7 +31,7 @@ Wakaba <wakaba@suikawiki.org>.
 =head1 HISTORY
 
 This repository was located at
-<https://github.com/wakaba/perl-number-cjk> until 18 April 2022, then
+<https://github.com/wakaba/perl-number-cjk> until 18 April 2023, then
 transferred to the manakai project
 <https://github.com/manakai/perl-number-cjk>.
 
