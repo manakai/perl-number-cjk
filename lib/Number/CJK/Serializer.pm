@@ -25,6 +25,7 @@ sub to_cjk_10000_grouped ($$) {
   
   my $one = $input % 10000;
   push @r, $one if $one or not @r;
+  return 0 if $one eq 'NaN';
 
   unshift @r, "\x{2212}" if $neg;
 

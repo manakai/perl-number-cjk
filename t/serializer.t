@@ -22,7 +22,7 @@ for my $path (($data_path->children (qr(^serialize-cjk10000-.*\.dat$)))) {
       my $actual = Number::CJK::Serializer->to_cjk_10000_grouped ($in);
       is $actual, $expected;
       done $c;
-    } n => 1, name => $test->{name}->[0] // $test->{in}->[0];
+    } n => 1, name => $test->{name}->[0] || $test->{in}->[0];
   };
 }
 
