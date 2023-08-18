@@ -24,6 +24,10 @@ returned.  Otherwise, C<undef> is returned.
 
 Numbers <https://manakai.github.io/spec-numbers/>.
 
+=head1 SEE ALSO
+
+This repository also contains L<CJK::Number::Serializer>.
+
 =head1 AUTHOR
 
 Wakaba <wakaba@suikawiki.org>.

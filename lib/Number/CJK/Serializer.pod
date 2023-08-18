@@ -1,0 +1,36 @@
+=encoding utf-8
+
+=head1 NAME
+
+Number::CJK::Serializer - Serialize as CJK numbers (漢数字)
+
+=head1 SYNOPSIS
+
+  use Number::CJK::Serializer;
+  $s = Number::CJK::Serializer->to_cjk_10000_grouped (123456789);
+  warn $s; # 1億2345万6789
+
+=head1 DESCRIPTION
+
+The C<Number::CJK::Serializer> module provides a class method,
+C<to_cjk_10000_grouped>, which converts a Perl number into a
+CJK-10000-grouped number string.
+
+The argument to the method must be a Perl number.
+
+=head1 SPECIFICATION
+
+Numbers <https://manakai.github.io/spec-numbers/>.
+
+=head1 AUTHOR
+
+Wakaba <wakaba@suikawiki.org>.
+
+=head1 LICENSE
+
+Copyright 2023 Wakaba <wakaba@suikawiki.org>.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
