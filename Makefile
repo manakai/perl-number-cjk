@@ -59,16 +59,14 @@ lib/Number/CJK/_Classes.pm:
 	    --form 'item=$$Ten=$$numbers:CJK-ten' \
 	    --form 'item=$$MultipleTens=$$numbers:CJK-multiple-tens' >> $@
 	curl -f -L https://raw.githubusercontent.com/manakai/data-chars/master/data/number-values.json | \
-	curl -f -L -X POST --data-binary @- https://misc-tools.herokuapp.com/json2perl | \
-	perl -e 'local $$/; $$data = eval <>; use Data::Dumper; $$Data::Dumper::Sortkeys = 1; print q{$$Value = }, Dumper {map { $$_ => $$data->{$$_}->{cjk_numeral} } grep { defined $$data->{$$_}->{cjk_numeral} } keys %$$data}; print q{;};' >> $@
+	perl -It_deps/modules/json-ps/lib -MJSON::PS -e 'local $$/; $$data = json_bytes2perl <>; use Data::Dumper; $$Data::Dumper::Sortkeys = 1; print q{$$Value = }, Dumper {map { $$_ => $$data->{$$_}->{cjk_numeral} } grep { defined $$data->{$$_}->{cjk_numeral} } keys %$$data}; print q{;};' >> $@
 	echo "1;" >> $@
 
 local/tests-cjk-numbers.json:
 	curl -f -L https://raw.githubusercontent.com/manakai/data-chars/master/data/tests/cjk-numbers.json > $@
 t_deps/lib/TestData.pm: local/tests-cjk-numbers.json
-	echo '$$Tests = ' > $@
 	cat local/tests-cjk-numbers.json | \
-	curl -f -L -X POST --data-binary @- https://misc-tools.herokuapp.com/json2perl >> $@
+	perl -It_deps/modules/json-ps/lib -MJSON::PS -e 'local $$/; $$data = json_bytes2perl <>; use Data::Dumper; $$Data::Dumper::Sortkeys = 1; print q{$$Tests = }, Dumper $$data; print q{;};' > $@
 	echo '; 1;' >> $@
 
 ## ------ Tests ------
