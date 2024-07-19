@@ -11,7 +11,16 @@ sub to_cjk_10000_grouped ($$) {
   my $neg = $input < 0;
   $input = -$input if $neg;
   
-  my $kei = int ($input / 10000000000000000);
+  my $jou = int ($input / 10000000000000000000000000000);
+  push @r, $jou . '穣' if $jou;
+  
+  my $jo = int (($input % 10000000000000000000000000000) / 1000000000000000000000000);
+  push @r, $jo . '𥝱' if $jo;
+  
+  my $gai = int (($input % 1000000000000000000000000) / 100000000000000000000);
+  push @r, $gai . '垓' if $gai;
+  
+  my $kei = int (($input % 100000000000000000000) / 10000000000000000);
   push @r, $kei . '京' if $kei;
   
   my $chou = int (($input % 10000000000000000) / 1000000000000);
@@ -36,7 +45,7 @@ sub to_cjk_10000_grouped ($$) {
 
 =head1 LICENSE
 
-Copyright 2023 Wakaba <wakaba@suikawiki.org>.
+Copyright 2023-2024 Wakaba <wakaba@suikawiki.org>.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

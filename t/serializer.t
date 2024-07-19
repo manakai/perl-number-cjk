@@ -7,6 +7,7 @@ use Test::X1;
 use Test::More;
 use Test::HTCT::Parser;
 use Number::CJK::Serializer;
+use Math::BigInt;
 
 my $data_path = path (__FILE__)->parent->parent->child ('t_deps/modules/tests-numbers/cjk/');
 for my $path (($data_path->children (qr(^serialize-cjk10000-.*\.dat$)))) {
@@ -18,6 +19,9 @@ for my $path (($data_path->children (qr(^serialize-cjk10000-.*\.dat$)))) {
     test {
       my $c = shift;
       my $in = $test->{in}->[0];
+      if ($test->{bigint}) {
+        $in = Math::BigInt->new ($in);
+      }
       my $expected = $test->{out}->[0];
       my $actual = Number::CJK::Serializer->to_cjk_10000_grouped ($in);
       is $actual, $expected;

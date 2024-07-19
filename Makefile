@@ -49,6 +49,9 @@ lib/Number/CJK/_Classes.pm:
 	    --form 'item=$$Sep=$$numbers:CJK-digit-group-separator' \
 	    --form 'item=$$NonZero=$$numbers:CJK-non-zero-digit' \
 	    --form 'item=$$Zero=$$numbers:CJK-zero' \
+	    --form 'item=$$TenOctillion=$$numbers:CJK-ten-octillion' \
+	    --form 'item=$$Septillion=$$numbers:CJK-septillion' \
+	    --form 'item=$$HundredQuintillion=$$numbers:CJK-hundred-quintillion' \
 	    --form 'item=$$TenQuadrillion=$$numbers:CJK-ten-quadrillion' \
 	    --form 'item=$$Trillion=$$numbers:CJK-trillion' \
 	    --form 'item=$$HundredMillion=$$numbers:CJK-hundred-million' \
