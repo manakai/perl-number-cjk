@@ -6,6 +6,9 @@ use Carp;
 
 use Number::CJK::_Classes;
 our $Digit;
+our $TenOctillion;
+our $Septillion;
+our $HundredQuintillion;
 our $TenQuadrillion;
 our $Trillion;
 our $HundredMillion;
@@ -122,6 +125,21 @@ sub _parse_large ($) {
       $Value->{$_};
     } split //, $1;
   }
+  if ($_[0] =~ s/^($TenOctillion)//o) {
+    $value += $v * $Value->{$1};
+    $v = &_parse_small;
+    return $value if not defined $v;
+  }
+  if ($_[0] =~ s/^($Septillion)//o) {
+    $value += $v * $Value->{$1};
+    $v = &_parse_small;
+    return $value if not defined $v;
+  }
+  if ($_[0] =~ s/^($HundredQuintillion)//o) {
+    $value += $v * $Value->{$1};
+    $v = &_parse_small;
+    return $value if not defined $v;
+  }
   if ($_[0] =~ s/^($TenQuadrillion)//o) {
     $value += $v * $Value->{$1};
     $v = &_parse_small;
@@ -170,7 +188,7 @@ sub parse_cjk_number ($) {
 
 =head1 LICENSE
 
-Copyright 2015-2019 Wakaba <wakaba@suikawiki.org>.
+Copyright 2015-2024 Wakaba <wakaba@suikawiki.org>.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

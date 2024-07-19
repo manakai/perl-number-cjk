@@ -15,7 +15,11 @@ for my $input (sort { $a cmp $b } keys %$Tests) {
   test {
     my $c = shift;
     my $result = parse_cjk_number $input;
-    is $result, $expected;
+    if (defined $expected) {
+      is $result, 0+$expected;
+    } else {
+      is $result, $expected;
+    }
     done $c;
   } n => 1, name => $input;
 } # $test
